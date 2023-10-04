@@ -1,4 +1,5 @@
 import cineflix.modelos.Filme;
+import cineflix.modelos.Serie;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,6 +7,7 @@ public class Main {
         meuFilme.setNome("O Poderoso Chefão");
         meuFilme.setAnoDeLancamento(1980);
         meuFilme.setDuracaoEmMinutos(180);
+        System.out.println(meuFilme.getDuracaoEmMinutos());
 
         meuFilme.exibeFichaTecnica();
         meuFilme.avalia(8);
@@ -16,6 +18,15 @@ public class Main {
         System.out.println(meuFilme.getSomaDasAvaliacoes());
         System.out.println(meuFilme.getTotalDeAvaliacoes());
         System.out.println(meuFilme.retornaMedia());
+
+        Serie sheldon = new Serie();
+        sheldon.setNome("Sheldon");
+        sheldon.setAnoDeLancamento(2018);
+        sheldon.exibeFichaTecnica();
+        sheldon.setTemporadas(8);
+        sheldon.setEpisodiosPorTemporada(12);
+        sheldon.setMinutosPorEpisodio(25);
+        System.out.println("Duração da série: " + sheldon.getDuracaoEmMinutos());
     }
 
 }
