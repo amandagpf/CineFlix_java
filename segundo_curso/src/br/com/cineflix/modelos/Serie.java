@@ -1,4 +1,4 @@
-package cineflix.modelos;
+package br.com.cineflix.modelos;
 
 public class Serie extends Titulo{
 

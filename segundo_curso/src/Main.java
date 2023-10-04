@@ -1,5 +1,8 @@
-import cineflix.modelos.Filme;
-import cineflix.modelos.Serie;
+import br.com.cineflix.calculos.CalculadoraDeTempo;
+import br.com.cineflix.calculos.FiltroRecomendacao;
+import br.com.cineflix.modelos.Episodio;
+import br.com.cineflix.modelos.Filme;
+import br.com.cineflix.modelos.Serie;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,6 +30,27 @@ public class Main {
         sheldon.setEpisodiosPorTemporada(12);
         sheldon.setMinutosPorEpisodio(25);
         System.out.println("Duração da série: " + sheldon.getDuracaoEmMinutos());
+
+        Filme outroFilme = new Filme();
+        outroFilme.setNome("Meninas Malvadas");
+        outroFilme.setAnoDeLancamento(2001);
+        outroFilme.setDuracaoEmMinutos(120);
+        System.out.println(outroFilme.getDuracaoEmMinutos());
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(meuFilme);
+        calculadora.inclui(outroFilme);
+        calculadora.inclui(sheldon);
+        System.out.println(calculadora.getTempoTotal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(meuFilme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setSerie(sheldon);
+        episodio.setTotalVisualizacao(300);
+        filtro.filtra(episodio);
     }
 
 }
